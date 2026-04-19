@@ -18,6 +18,22 @@ const calculateTotalQuantity = ()=> {
     return cartItems ? cartItems.reduce((total, item)=> total+= item.quantity, 0): 0;
 
 };
+
+return(
+<div>
+    <h2>Total quantity of products in the cart: {calculateTotalQuantity}</h2>
+    <h2>List of your products</h2>
+    {items.map(item => (
+        <div key = {item.name}>
+            <h3>Name: {item.name}</h3>
+            <h3>Cost: {item.cost}</h3>
+            <img src={item.image} alt={ProductList.name} />
+        </div>
+    ))}
+    
+
+</div>
+)
 };
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
@@ -303,4 +319,5 @@ function ProductList({ onHomeClick }) {
 }
 
 export default ProductList;
+
 
