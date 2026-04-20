@@ -7,14 +7,12 @@ const CartItem = ({ onContinueShopping }) => {
 const cart = useSelector(state => state.cart.items);
 const dispatch = useDispatch();
 
-// Универсально приводим цену к числу
 const getPrice = (cost) => {
 return typeof cost === "string"
 ? parseFloat(cost.replace("$", ""))
 : cost;
 };
 
-// Общая сумма корзины
 const calculateTotalAmount = (items) => {
 return items.reduce((total, item) => {
 const price = getPrice(item.cost);
